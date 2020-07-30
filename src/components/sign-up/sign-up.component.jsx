@@ -37,7 +37,7 @@ class SignUp extends Component {
         displayName: "",
         email: "",
         password: "",
-        comfirmPassword: "",
+        confirmPassword: "",
       });
     } catch (err) {
       console.log(err);
