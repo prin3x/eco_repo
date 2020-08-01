@@ -3,6 +3,8 @@ import CustomButtom from "../custom-button/custom-button.component";
 import "./collection-item.styles.scss";
 import { connect } from "react-redux";
 import { addItem } from "../../redux/cart/cart.actions.js";
+import { selectCartItems } from "../../redux/cart/cart.selectors";
+import { createStructuredSelector } from "reselect";
 
 const CollectionItem = ({ item, addItem, cartItems }) => {
   const { name, price, imageUrl } = item;
@@ -24,8 +26,8 @@ const mapDispatchToProps = dispatch => ({
   addItem: item => dispatch(addItem(item)),
 });
 
-const mapStateToProps = ({ cart }) => ({
-  cartItems: cart.cartItems,
+const mapStateToProps = createStructuredSelector({
+  cartItems: selectCartItems,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CollectionItem);
