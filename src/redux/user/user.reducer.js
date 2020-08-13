@@ -12,6 +12,7 @@ const userReducer = (currentState = INITIAL_STATE, action) => {
         currentUser: action.payload,
       };
     default:
+      console.log("userReducer default being used");
       return currentState;
   }
 };
